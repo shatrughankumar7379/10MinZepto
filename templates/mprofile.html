@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    .a{
+        transition: transform .2s ;
+       
+    }
+    .a:hover{
+        transform: scale(1.5);
+        
+    }
+    .img-fluid{
+        transform: translateY(-100px);
+    }
+</style>
+<div class="text-center fs-2">
+    Our<b class="txt-mycolor">Profile <i class="fa-solid fa-user "></i></b>
+</div>
+<div class="row mt-4">
+    <div class="col-sm-7 mx-auto">
+        <div class="card mb-3">
+            <div class="row">
+                <div class="col-md-4 py-3">
+                    <img src="{% static 'images/sk.jpg'%}" class="img-fluid mx-4" style="border-radius: 50%; height: 200px; width: 200px;">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body mt-5" style="float: left;">
+                        <h5 class="card-title">Shatrughan Kumar</h5>
+                        <p class="card-text">Bachelor of Technology from Abdul Kalam Technical University Specialization in
+                            Computer Science and Engineering, with …<br>
+                            Intermediate: Pt. Deen Dayal Intermediate College Maharajganj.
+                            PCM, with 70.6% 2020 ,UP <br>
+                            High School: RASIN SCHOOL PARTWAL CHOWK MAHARAJGANJ UP , with 52.5% 2018
+                        </p>
+
+                    </div>
+                    <div class="row mx-auto">
+                        <div class="col-6 fs-4">
+                            <a href=""><i class="fa-brands fa-linkedin a"></i></a>
+                            <a href=""><i class="fa-brands fa-whatsapp text-success a"></i></a>
+                            <a href=""><i class="fa-brands fa-instagram text-danger a"></i></a>
+                            <a href=""><i class="fa-brands fa-facebook a"></i></a>
+                            <a href=""><i class="fa-brands fa-facebook-messenger a"></i></a>
+                            <a href=""><i class="fa-brands fa-youtube text-danger a"></i></a>
+                            <a href=""><i class="fa-brands fa-github text-dark a"></i></a>
+                            <a href=""><i class="fa-brands fa-twitter  a"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

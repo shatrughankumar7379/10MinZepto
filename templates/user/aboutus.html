@@ -1,0 +1,105 @@
+{%  extends 'base.html'%}
+{% load static %}
+{% block content %}
+<style>
+header {
+    /* background-color: #0077b6; */
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+.content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.about-us,
+.mission-values,
+.why-choose-us,
+.join-us {
+    margin-bottom: 2rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: #0077b6;
+    margin-bottom: 1rem;
+}
+
+ul {
+    list-style-type: disc;
+    margin-left: 1.5rem;
+}
+
+footer {
+    text-align: center;
+    background-color: #0077b6;
+    color: #fff;
+    padding: 1rem 0;
+}
+
+/* Media query for responsiveness */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+    h2 {
+        font-size: 1.2rem;
+    }
+    .content {
+        padding: 1rem;
+    }
+}
+</style>
+<div class="text-center fs-2">
+    About <b class="txt-mycolor">Us <i class="fa-regular fa-address-card"></i></b>
+</div>
+
+<header>
+    
+</header>
+<section class="content">
+    <div class="about-us">
+        <h2>Our Story</h2>
+        <p>OrderKaro was born out of a simple idea – to make the world a smaller 
+            place by connecting people and businesses through seamless deliveries. 
+            Founded in 2010 by a group of logistics enthusiasts, we embarked on a journey to redefine the delivery experience. 
+            Over the years, we've transformed into 
+            a leading delivery solutions provider with a strong presence across the globe.</p>
+    </div>
+    <div class="mission-values">
+        <h2>Our Mission</h2>
+        <p>Our mission is to empower businesses and individuals by providing efficient, sustainable, and convenient delivery services. We aim to be at the forefront of innovation, using technology to enhance the way you send and receive packages, ensuring your world is just a OrderKaro away.</p>
+        <h2>Our Values</h2>
+        <ul>
+            <li>Reliability: We pride ourselves on being dependable and consistent. You can trust us to meet your delivery needs, every time.</li>
+            <li>Innovation: We're constantly evolving to offer cutting-edge solutions that simplify your logistics challenges.</li>
+            <li>Customer-Centric: Your satisfaction is our top priority. We're dedicated to providing the best customer experience in the industry.</li>
+            <li>Sustainability: We're committed to reducing our environmental footprint and promoting sustainable practices in the logistics sector.</li>
+        </ul>
+    </div>
+</section>
+<section class="why-choose-us">
+    <h2>Why Choose  OrderKaro</h2>
+    <ul>
+        <li>Fast and Secure: Our state-of-the-art logistics network ensures your packages arrive safely and on time.</li>
+        <li>Global Reach: With a presence in over 100 countries, we can deliver anywhere in the world.</li>
+        <li>Dedicated Team: Our team of professionals is passionate about logistics and dedicated to your success.</li>
+        <li>Technology-Driven: We leverage the latest technology to provide real-time tracking, transparent pricing, and seamless integration.</li>
+    </ul>
+</section>
+<section class="join-us">
+    <h2>Join Us on Our Journey</h2>
+    <p>We invite you to join us on this exciting journey. Whether you're a business looking for a reliable logistics partner or an individual in need of a trustworthy delivery service, Blinkit is here for you. Together, we'll continue to connect the world, one package at a time.</p>
+</section>
+<footer>
+    <p>Thank you for choosing OrderKaro.</p>
+</footer>
+
+{% endblock %}

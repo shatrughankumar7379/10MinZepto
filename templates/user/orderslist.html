@@ -1,0 +1,168 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% if not request.session.user %}
+<script>
+    alert("You Have Login first")
+    location.href = "/user/signin/"
+</script>
+{% endif %}
+<div class="text-center fs-2">
+    My<b class="txt-mycolor">Orders<i class="fa-solid fa-user "></i></b>
+</div>
+<!-- start pending Orders -->
+
+<div class="row">
+    <div class="col-sm-10 mx-auto text-danger mt-3 bg-dark-subtle ">
+        <div class="row">
+            <div class="fs-3 "><b>Pending Orders</b></div>
+            <div class="col-sm-12 mx-auto">
+                <!-- Start Card -->
+                {% for i in pdata %}
+                <div class="card mb-3">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="/{{i.product_picture}}" style="height: 150px; width: 150px;" class="img-fluid rounded-start">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <table class="table table-striped">
+                                    <tr>
+                                        <th>Product Details</th>
+                                        <th>Qunatity</th>
+                                        <th>SubTotal</th>
+                                        <th>Status</th>
+                                        <th>Order Date</th>                                                                           
+                                        <th>Cancel</th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <b>{{i.product_name}}</b><br>
+                                            <small>{{i.pw}} &nbsp;&nbsp;</small>
+                                            <i class="fa-solid fa-indian-rupee-sign"></i>{{i.price}}/-
+                                        </td>
+                                        <td>{{i.quantity}}</td>
+                                        <td>{{i.total_price}}</td>
+                                        <td><b class="badge bg-danger">{{i.status}}</b></td>
+                                        <td>{{i.order_date}}</td>
+                                        <td><a href="/user/orderslist?oid={{i.id}}" class="btn btn-sm- btn-outline-danger">Cancel Order <i class="fa-solid fa-trash"></i></a></td>
+                                    
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                <!-- End Card -->
+            </div>
+        </div>
+    </div>
+</div>
+
+ <!-- end Pending Orders -->
+
+ <!-- accepted -->
+
+ <div class="row">
+    <div class="col-sm-10 mx-auto py-3 text-info bg-warning-subtle mt-5 ">
+        <div class="row">
+            <div class="fs-3 "><b>Accepted Orders</b></div>
+            <div class="col-sm-12 mx-auto">
+                <!-- Start Card -->
+                {% for i in adata %}
+                <div class="card mb-3">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="/{{i.product_picture}}" style="height: 150px; width: 150px;" class="img-fluid rounded-start">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <table class="table table-striped">
+                                    <tr>
+                                        <th>Product Details</th>
+                                        <th>Qunatity</th>
+                                        <th>SubTotal</th>
+                                        <th>Status</th>
+                                        <th>Order Date</th>                                                                           
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <b>{{i.product_name}}</b><br>
+                                            <small>{{i.pw}} &nbsp;&nbsp;</small>
+                                            <i class="fa-solid fa-indian-rupee-sign"></i>{{i.price}}/-
+                                        </td>
+                                        <td>{{i.quantity}}</td>
+                                        <td>{{i.total_price}}</td>
+                                        <td><b class="badge bg-danger">{{i.status}}</b></td>
+                                        <td>{{i.order_date}}</td>
+                                        
+                                    
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                <!-- End Card -->
+            </div>
+        </div>
+    </div>
+</div>
+
+ <!-- end accepted -->
+
+ <!-- start Delivered -->
+
+ <div class="row">
+    <div class="col-sm-10 mx-auto py-3 text-success bg-success-subtle mt-5">
+        <div class="row">
+            <div class="fs-3 "><b>Delivered Orders</b></div>
+            <div class="col-sm-12 mx-auto">
+                <!-- Start Card -->
+                {% for i in ddata %}
+                <div class="card mb-3">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="/{{i.product_picture}}" style="height: 150px; width: 150px;" class="img-fluid rounded-start">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <table class="table table-striped">
+                                    <tr>
+                                        <th>Product Details</th>
+                                        <th>Qunatity</th>
+                                        <th>SubTotal</th>
+                                        <th>Status</th>
+                                        <th>Order Date</th>                                                                           
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <b>{{i.product_name}}</b><br>
+                                            <small>{{i.pw}} &nbsp;&nbsp;</small>
+                                            <i class="fa-solid fa-indian-rupee-sign"></i>{{i.price}}/-
+                                        </td>
+                                        <td>{{i.quantity}}</td>
+                                        <td>{{i.total_price}}</td>
+                                        <td><b class="badge bg-danger">{{i.status}}</b></td>
+                                        <td>{{i.order_date}}</td>
+                                        
+                                    
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                <!-- End Card -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %} 

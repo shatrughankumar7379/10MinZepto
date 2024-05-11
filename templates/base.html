@@ -1,0 +1,338 @@
+<!DOCTYPE html> {% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/all.css' %}" rel="stylesheet" />
+    <title>Title</title>
+    <style>
+        :root {
+            --bgcolor: #164a09;
+            --txtcolor: #0c4517;
+        }
+
+        .t1 {
+            font-size: 14px;
+        }
+
+        
+        .bg-mycolor {
+            background: var(--bgcolor) !important;
+        }
+
+        .txt-mycolor {
+            color: var(--txtcolor);
+        }
+
+        
+
+
+
+        #menu {
+            background: transparent !important;
+        }
+
+        #menu ul li a {
+            color: white;
+        }
+
+        .ufooter {
+            min-height: 150px;
+        }
+
+        .bfooter {
+            min-height: 50px;
+        }
+
+        .ecommerce-footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-section {
+            flex: 1;
+            margin: 0 10px;
+            text-align: center;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 10px;
+        }
+
+        .footer-section p {
+            font-size: 14px;
+        }
+
+        .social-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .social-links li {
+            margin-bottom: 5px;
+        }
+
+        .social-links a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .nav-link:hover {
+            background: var(--bgcolor) !important;
+            border: 2px solid yellow;
+            border-radius: 10px;
+        box-shadow: 4px 4px 0px 0px;
+        font-family:'Times New Roman', Times, serif ;
+        font-style: italic;
+        transition: all 1s;
+        transform: translateX(10px);
+       
+        }
+        .btn:hover{
+            border: 2px solid yellow;
+            
+            border-radius: 10px;
+        box-shadow: 4px 4px 0px 0px black;
+        font-family:'Times New Roman', Times, serif ;
+       
+        transition: all 1s;
+       
+        }
+
+        /* Style the map part */
+        .footer-map iframe {
+            width: 100%;
+            height: 150px;
+            border: none;
+        }
+
+        /* Responsive styles */
+        @media screen and (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+            }
+
+            .footer-section {
+                flex: 1;
+                margin: 0;
+                margin-bottom: 20px;
+            }
+        }
+       
+    </style>
+</head>
+
+<body>
+    <script src="{% static 'js/bootstrap.bundle.js'%}"></script>
+    <div class="container-fluid">
+        <div class="row t1 text-center text-dark py-1">
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <i class="fa-solid fa-phone fa-spin text-success"></i> +91-6394155192
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <i class="fa-solid fa-envelope"></i> shatrughankumar7379@gmail.com
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                An ISO 9001:2015 Certified Software Company
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <a href="#"<i class="fa-brands fa-square-facebook"style="color:blue;"></i></a>
+                <a href="#"<i class="fa-brands fa-square-twitter text-info"></i></a>
+                <a href="#"<i class="fa-brands fa-square-instagram" style="color:red"></i></a>
+                <a href="#"<i class="fa-brands fa-square-youtube"style="color:red"></i></a>
+                <a href="#"<i class="fa-brands fa-square-whatsapp text-success"></i></a>
+                <a href="#"<i class="fa-brands fa-linkedin"style="color:blue;"></i></a>
+            </div>
+        </div>
+        <div class="row t2">
+            <div class="col-sm-10 mx-auto">
+                <div class="row py-3">
+                    <div class="col-sm-4 fs-2">
+                        10Min<b class="txt-mycolor">Zepto
+                          <i class="fa-solid fa-bag-shopping fa-fade  "></i></b>
+                    </div>
+                    <div class="col-sm-3">
+                       
+                                
+                           
+                        <form class="d-flex"  method="get" action="/search" role="search">
+                            <input class="form-control  me-2 " type="search" placeholder="Search Product..." aria-label="Search" name="query" id="search"> <i class="input-group-text bg-mycolor  text-light" style="width: 50px; text-align: center;">
+                                <i class="fa-solid fa-microphone"></i> 
+                            </i>
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                            
+                          </form>
+                          
+                    </div>
+                    
+                    <div class="col-sm-3 text-end">
+                        {% if request.session.user %}
+                        <a href="/user/cartitems/" class="btn btn-sm bg-mycolor text-light">Cart
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <b class="badge text-bg-light">{{request.session.cartitems}}</b>
+                        </a>
+                        <a href="/user/orderslist/" class="btn btn-sm bg-mycolor text-light">My Orders
+                            <i class="fa-solid fa-truck fa-bounce"></i>
+                            
+                            
+                        </a>
+                        {% else %}
+                        <a href="/user/cartitems/" class="btn bg-mycolor text-light">Cart
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <b class="badge text-bg-light">0</b>
+                        </a>
+
+                        {% endif %}
+
+
+
+                    </div>
+                    <div class="col-sm-2">
+                        {% if request.session.user %}
+
+                        <a href="/user/myprofile/" class="text-decoration-none text-dark" ;>{{ request.session.username }}
+
+                            <img src="/{{ request.session.userpic }}"
+                                style="max-height:45px; width: 45px; border-radius:50%; " class="img-fluid">
+                        </a>
+                        {% else %}
+
+                        <a href="#" class="nav-link">Default User
+
+                            <img src="{% static 'images/default.jpg'%}" style="max-height:45px;" class="img-fluid">
+                        </a>
+
+                        {% endif %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row t3 bg-mycolor">
+            <div class="col-sm-7 mx-auto">
+                <!-- start menu -->
+                <nav class="navbar navbar-expand-lg bg-body-tertiary" id="menu">
+                    <div class="container-fluid">
+
+                        <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <i class="fa-solid fa-home text-light" style="margin-top: 12px;"></i>
+                                <li class="nav-item ">
+                                    <a class="nav-link active " aria-current="page" href="/user/index/">Home</a>
+                                </li>
+                                <i class= "fa-solid fa-circle-info text-light ps-3" style="margin-top: 12px;"></i>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/user/about/">About Us</a>
+                                </li>
+                                <i class="fa-solid fa-bag-shopping text-light ps-3" style="margin-top: 12px;"></i>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/user/product/">Product</a>
+                                </li>
+                                <i class="fa-solid fa-person text-light ps-3" style="margin-top: 12px;" ></i>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/user/contact/">Customer Support</a>
+                                </li>
+                                 <i class="fa-solid fa-user-plus text-light ps-3" style="margin-top: 12px;" ></i>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/user/signup/">Sign Up</a>
+                                </li>
+                                <i class="fa-solid fa-user text-light ps-3" style="margin-top: 12px;"></i>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/user/myprofile/">My Profile</a>
+                                </li>
+                                {% if request.session.user %}
+                                <i class="fa-solid fa-lock text-light ps-3" style="margin-top: 12px;"></i>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/user/signout/">Sign Out</a>
+                                </li>
+                                
+                               
+                                {% else %}
+
+                                </li>
+                                <i class="fa-solid fa-key text-light ps-3" style="margin-top: 12px;"></i>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/user/signin/">Sign In</a>
+                                </li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                       
+                    </div>
+                </nav>
+                
+                <!-- end menu -->
+            </div>
+           
+        </div>
+        <div class="row">
+            <div class="col-sm-12 py-4" style="min-height:500px;">
+                {% block content %} {% endblock %}
+            </div>
+        </div>
+        <div class="row ufooter bg-dark" >
+
+            <footer class="ecommerce-footer" >
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <a href="/user/about/" class="text-decoration-none text-light"><h3>About Us</h3></a>
+                        <p style="text-align: justify;">Welcome to Our Store, your one-stop destination for all your shopping needs. We're dedicated
+                            to providing you with the very best products, with a focus on quality, affordability, and
+                            outstanding customer service.
+                        </p>
+
+                    </div>
+                    <div class="footer-section">
+                        <a href="/user/contact/" class="text-decoration-none text-light"><h3>Contact Us</h3></a>
+                        <p>123 Main Street<br>City, State 12345<br>Email: info@example.com<br>Phone: +91-6394155192</p>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Follow Us</h3>
+                        <ul class="social-links">
+                            <li><a href="#">Facebook</a></li>
+                            <li><a href="#">Twitter</a></li>
+                            <li><a href="#">Instagram</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Our Location</h3>
+                        <div class="footer-map">
+                            <Embed your map here, you can use an iframe from a map service like Google Maps -->
+                             <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3152.9692108650627!2d-122.41941518462745!3d37.7749299797563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80859a6d00690021%3A0x4a501367f076adff!2sSan%20Francisco%2C%20CA!5e0!3m2!1sen!2sus!4v1612972514763!5m2!1sen!2sus"
+                                width="200" height="150" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+        <div class="row bfooter bg-dark text-light mt-1 text-center py-3">
+            <div class="col-sm-6">
+                <a href="https://www.techpile.in" target="_blank" class="text-light text-decoration-none">&copy; Techpile Technology Pvt. Ltd.</a>
+            </div>
+            <div class="col-sm-6">
+                Designed & Developed By : <a href="/user/mprofile/" class="text-light text-decoration-none">Er. Shatrughan Kumar</a>
+            </div>
+        
+        </div>
+    </div>
+
+</body>
+
+</html>

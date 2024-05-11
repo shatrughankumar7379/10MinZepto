@@ -1,0 +1,89 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+
+<style>
+  .i {
+    
+    color: var(--txtcolor) !important;
+    height: 35px;
+    width: 35px;
+    text-align: center;
+    line-height: 35px;
+
+
+  }
+
+  .form-control {
+    height: 50px;
+    margin-bottom: .8%;
+  }
+
+  #upform {
+    display: none;
+  }
+</style>
+<script>
+  function demo() {
+    document.getElementById('upform').style.display = "block";
+  }
+</script>
+
+<div class="text-center fs-2">
+  My <b class="txt-mycolor">Profile <i class="fa-solid fa-user"></i></b>
+</div>
+{% if not request.session.user %}
+
+<script>
+  alert('You Have Login To First');
+  location.href = '/user/signin/';
+</script>
+{% endif %}
+<div class="row">
+  <div class="col-sm-8 mx-auto">
+    <!-- my profile  -->
+    {% for i in rdata %}
+    <div class="card mb-3">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="/{{i.profile}}" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8 p-5">
+          <div class="card-body">
+
+            <p class="card-text">
+              <i class="fa-solid fa-user i"></i> {{i.name}} <br>
+              <i class="fa-solid fa-envelope i"></i>{{i.email}} <br>
+              <i class="fa-solid fa-phone i"></i> {{i.mobile}} <br>
+              <i class="fa-solid fa-lock i"></i> {{i.passwd}} <br>
+              <i class="fa-solid fa-location-dot i"></i> {{i.address}} <br> <br>
+              <a href="#" onclick="demo()" class="btn btn-sm text-bg-dark">Edit Profile <i
+                  class="fa-solid fa-pen-to-square i"></i></a>
+
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    <!-- end myprofile -->
+  </div>
+</div>
+
+<div class="row py-3 mt-3" id="upform" style="background: #e3e3e3;">
+  <div class="col-sm-7 mx-auto">
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      Name<input type="text" required name="name" placeholder="Name.." class="form-control" />
+
+      Mobile<input type="number" name="mobile" placeholder="Mobile.." class="form-control" />
+      Password<input type="password" name="passwd" placeholder="password.." class="form-control" />
+      Profile Picture<input type="file" name="fu" class="form-control" />
+      Address<textarea class="form-control" name="address" placeholder="Message.."></textarea>
+      <input type="submit" value="Save" class="btn bg-mycolor" />
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}

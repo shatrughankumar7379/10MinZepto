@@ -1,0 +1,116 @@
+{%  extends 'base.html'%}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<style>
+	body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.payment-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    text-align: center;
+}
+
+.payment-options {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+}
+
+.payment-option {
+    margin-bottom: 10px;
+}
+
+.payment-details-section {
+    display: none;
+}
+
+.pay-button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+/* Add more CSS to style the payment forms and options as needed. */
+
+	</style>
+</head>
+<body>
+    <div class="text-center fs-2">
+        Payment<b class="txt-mycolor">Mode <i class="fa-solid fa-cash-register"></i></b>
+    </div>
+    <div class="payment-container">
+        <h1 style="color:var(--txtcolor) ;">Choose a Payment Option</h1>
+        <div class="payment-options">
+            <div class="payment-option">
+                <label for="creditCard">
+                    <input type="radio" id="creditCard" name="paymentMethod">
+                    Credit Card
+                </label>
+            </div>
+            <div class="payment-option">
+                <label for="paypal">
+                    <input type="radio" id="paypal" name="paymentMethod">
+               Paytm
+                </label>
+                
+            </div>
+            <div class="payment-option">
+                <label for="bankTransfer">
+                    <input type="radio" id="bankTransfer" name="paymentMethod">
+                    Bank Transfer
+                </label>
+            </div>
+            <div class="payment-option">
+                <label for="cash">
+                    <input type="radio" id="cash" name="paymentMethod">
+                    Cash On Delivery
+                </label>
+            </div>
+        </div>
+        <div class="payment-details">
+            <div id="creditCardDetails" class="payment-details-section">
+                <!-- Credit Card Payment Form -->
+                <h2>Credit Card Details</h2>
+                <!-- Credit card form fields go here -->
+            </div>
+            <div id="paypalDetails" class="payment-details-section">
+                <!-- Paytm Payment Form -->
+                <h2>Paytm Details</h2>
+                <!-- Paytm form fields go here -->
+            </div>
+            <div id="bankTransferDetails" class="payment-details-section">
+                <!-- Bank Transfer Form -->
+                <h2>Bank Transfer Details</h2>
+                <!-- Bank transfer form fields go here -->
+            </div>
+        </div>
+        <a href="/user/order?msg=1" class="pay-button btn bg-mycolor " onclick="pay()">Proceed to Payment</a>
+        
+        
+    </div>
+   
+</body>
+</html>
+
+{% endblock %}
